@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="message-thrift-api" />
+        <module name="user-service" />
         <module name="user-thrift-api" />
       </profile>
     </annotationProcessing>
