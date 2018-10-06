@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="LearningMicroService" />
+        <module name="message-thrift-api" />
+        <module name="user-thrift-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

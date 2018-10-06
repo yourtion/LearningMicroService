@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>message-thrift-api</module>
+        <module>user-thrift-api</module>
     </modules>
 
     <repositories>
