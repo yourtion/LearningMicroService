@@ -9,5 +9,8 @@
         <module name="LearningMicroService" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="thrift-api-message" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
