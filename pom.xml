@@ -12,6 +12,7 @@
         <module>message-thrift-api</module>
         <module>user-thrift-api</module>
         <module>user-service</module>
+        <module>user-edge-service</module>
     </modules>
 
     <repositories>

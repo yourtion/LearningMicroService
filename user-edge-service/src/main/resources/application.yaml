@@ -1,0 +1,3 @@
+service:
+  name: user-edge-service
+  port: 8082
