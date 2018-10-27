@@ -1,6 +1,8 @@
 package com.yourtion.micro.user.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.yourtion.micro.thrift.user.dto.UserDTO;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
@@ -12,10 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 
 public abstract class LoginFilter implements Filter {
-    public void init(FilterConfig filterConfig) throws ServletException {
 
+    protected abstract void login(HttpServletRequest request, HttpServletResponse response, UserDTO userDTO);
+
+    private static Cache<String, UserDTO> cache = CacheBuilder.newBuilder()
+            .maximumSize(10000)
+            .expireAfterWrite(3, TimeUnit.MINUTES)
+            .build();
+
+    public void init(FilterConfig filterConfig) throws ServletException {
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
@@ -35,7 +45,10 @@ public abstract class LoginFilter implements Filter {
 
         UserDTO userDTO = null;
         if (StringUtils.isNotBlank(token)) {
-            userDTO = requestUserInfo(token);
+            userDTO = cache.getIfPresent(token);
+            if (userDTO == null) {
+                userDTO = requestUserInfo(token);
+            }
         }
 
         if (userDTO == null) {
@@ -43,12 +56,13 @@ public abstract class LoginFilter implements Filter {
             return;
         }
 
+        cache.put(token, userDTO);
+
         login(request, response, userDTO);
 
         filterChain.doFilter(request, response);
     }
 
-    protected abstract void login(HttpServletRequest request, HttpServletResponse response, UserDTO userDTO);
 
     private UserDTO requestUserInfo(String token) {
         String url = "http://127.0.0.1:8082/user/authentication";
@@ -87,6 +101,5 @@ public abstract class LoginFilter implements Filter {
     }
 
     public void destroy() {
-
     }
 }
