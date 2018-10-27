@@ -25,7 +25,7 @@ public class ThriftServer {
     @PostConstruct
     public void startThriftServer() {
 
-        TProcessor processor = new UserService.Processor<>(userService);
+        var processor = new UserService.Processor<>(userService);
 
 
         TNonblockingServerSocket socket = null;
@@ -35,12 +35,12 @@ public class ThriftServer {
             e.printStackTrace();
         }
 
-        TNonblockingServer.Args args = new TNonblockingServer.Args(socket);
+        var args = new TNonblockingServer.Args(socket);
         args.processor(processor);
         args.transportFactory(new TFramedTransport.Factory());
         args.protocolFactory(new TBinaryProtocol.Factory());
 
-        TServer server = new TNonblockingServer(args);
+        var server = new TNonblockingServer(args);
         server.serve();
     }
 }

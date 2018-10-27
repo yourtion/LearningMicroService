@@ -20,17 +20,17 @@ public class ServiceProvider {
 
     public UserService.Client getUserService() {
 
-        TSocket socket = new TSocket(serverIp, serverPort, 3000);
-        TTransport transport = new TFastFramedTransport(socket);
+        var socket = new TSocket(serverIp, serverPort, 3000);
+        var transport = new TFastFramedTransport(socket);
         try {
             transport.open();
         } catch (TTransportException e) {
             e.printStackTrace();
             return null;
         }
-        TProtocol protocol = new TBinaryProtocol(transport);
+        var protocol = new TBinaryProtocol(transport);
 
-        UserService.Client client = new UserService.Client(protocol);
+        var client = new UserService.Client(protocol);
 
         return client;
 

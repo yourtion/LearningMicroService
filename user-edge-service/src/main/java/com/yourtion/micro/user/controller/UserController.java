@@ -49,7 +49,7 @@ public class UserController {
             return Response.USERNAME_PASSWORD_INVALID;
         }
         // 2. 生成 token
-        String token = getToken();
+        var token = getToken();
 
         // 3. 缓存用户
         redisClient.set(token, toDTO(userInfo), 3600);
@@ -69,8 +69,8 @@ public class UserController {
 
     private String randomCode(String s, int size) {
         var result = new StringBuffer(size);
-        Random random = new Random();
-        int len = s.length();
+        var random = new Random();
+        var len = s.length();
         for (int i = 0; i < size; i++) {
             int loc = random.nextInt(len);
             result.append(s.charAt(loc));
@@ -81,7 +81,7 @@ public class UserController {
     private String md5(String password) {
         try {
             var md5 = MessageDigest.getInstance("MD5");
-            byte[] md5Bytes = md5.digest(password.getBytes());
+            var md5Bytes = md5.digest(password.getBytes());
             return HexUtils.toHexString(md5Bytes);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

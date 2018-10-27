@@ -27,7 +27,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
+        var redisTemplate = new RedisTemplate<String, String>();
         redisTemplate.setConnectionFactory(factory);
         redisTemplate.afterPropertiesSet();
         setSerializer(redisTemplate);
@@ -35,7 +35,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     }
 
     private void setSerializer(RedisTemplate<String, String> template) {
-        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        var jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
         var om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
