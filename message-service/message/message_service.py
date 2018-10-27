@@ -12,14 +12,15 @@ from message.api import MessageService
 sender = 'imoocd@163.com'
 authCode = 'aA111111'
 
+
 class MessageServiceHandler:
 
     def sendMobileMessage(self, mobile, message):
-        print("sendMobileMessage mobile: %s message: %s", mobile, message)
+        print("sendMobileMessage mobile: %s message: `%s`" % (mobile, message))
         return True
 
     def sendEmailMessage(self, email, message):
-        print("sendEmailMessage email: %s message: %s", email, message)
+        print("sendEmailMessage email: %s message: %s" % (email, message))
         messageObj = MIMEText(message, "plain", "utf-8")
         messageObj["From"] = sender
         messageObj["To"] = email
@@ -29,7 +30,7 @@ class MessageServiceHandler:
             smtpObj = smtplib.SMTP("smtp.163.com")
             smtpObj.login(sender, authCode)
             smtpObj.sendmail(sender, [email], messageObj.as_string())
-            print("send mailsuccess")
+            print("send mail success")
             return True
         except smtplib.SMTPException as ex:
             print("send mail failed!")
@@ -38,13 +39,15 @@ class MessageServiceHandler:
 
 
 if __name__ == '__main__':
+    ip = "127.0.0.1"
+    port = 9090
     handler = MessageServiceHandler()
     processor = MessageService.Processor(handler)
-    transport = TSocket.TServerSocket("localhost", "9090")
+    transport = TSocket.TServerSocket(ip, port)
     tfactory = TTransport.TFramedTransportFactory()
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
 
     server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
-    print("python thrift server start")
+    print("python thrift server start at %s:%d" % (ip, port))
     server.serve()
     print("python thrift server exit")
