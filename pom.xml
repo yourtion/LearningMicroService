@@ -13,6 +13,7 @@
         <module>user-thrift-api</module>
         <module>user-service</module>
         <module>user-edge-service</module>
+        <module>user-edge-service-client</module>
     </modules>
 
     <repositories>
