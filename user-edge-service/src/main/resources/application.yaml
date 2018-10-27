@@ -6,6 +6,9 @@ thrift:
   user:
     ip: 127.0.0.1
     port: 7911
+  message:
+    ip: 127.0.0.1
+    port: 9090
 
 spring:
   redis:
