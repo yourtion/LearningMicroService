@@ -19,6 +19,6 @@ public interface UserMapper {
     UserInfo getUserByName(@Param("username") String username);
 
     @Insert("Insert into pe_user (username, password, real_name, mobile, email)" +
-            "valuse (#{u.username}, #{u.password}, #{u.realName}, #{u.mobile}, #{u.email})")
+            "values (#{u.username}, #{u.password}, #{u.realName}, #{u.mobile}, #{u.email})")
     void registerUser(@Param("u") UserInfo userInfo);
 }
