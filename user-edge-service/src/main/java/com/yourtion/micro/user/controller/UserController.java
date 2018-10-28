@@ -1,7 +1,7 @@
 package com.yourtion.micro.user.controller;
 
-import com.yourtion.micro.thrift.user.UserInfo;
-import com.yourtion.micro.thrift.user.dto.UserDTO;
+import com.yourtion.micro.user.thrift.UserInfo;
+import com.yourtion.micro.user.dto.UserDTO;
 import com.yourtion.micro.user.redis.RedisClient;
 import com.yourtion.micro.user.response.LoginResponse;
 import com.yourtion.micro.user.response.Response;

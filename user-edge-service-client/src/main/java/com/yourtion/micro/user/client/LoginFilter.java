@@ -3,7 +3,7 @@ package com.yourtion.micro.user.client;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.yourtion.micro.thrift.user.dto.UserDTO;
+import com.yourtion.micro.user.dto.UserDTO;
 import org.apache.http.HttpStatus;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

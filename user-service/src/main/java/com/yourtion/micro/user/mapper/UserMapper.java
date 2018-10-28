@@ -1,6 +1,6 @@
 package com.yourtion.micro.user.mapper;
 
-import com.yourtion.micro.thrift.user.UserInfo;
+import com.yourtion.micro.user.thrift.UserInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

@@ -1,4 +1,4 @@
-package com.yourtion.micro.thrift.user.dto;
+package com.yourtion.micro.user.dto;
 
 import java.io.Serializable;
 

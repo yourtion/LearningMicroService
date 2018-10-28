@@ -1,4 +1,4 @@
-namespace java com.yourtion.micro.thrift.user
+namespace java com.yourtion.micro.user.thrift
 
 struct UserInfo {
     1:i32 id,
@@ -7,6 +7,8 @@ struct UserInfo {
     4:string realName,
     5:string mobile,
     6:string email,
+    7:string intro,
+    8:i32 stars,
 }
 
 service UserService {

@@ -1,7 +1,7 @@
 package com.yourtion.micro.user.service;
 
-import com.yourtion.micro.thrift.user.UserInfo;
-import com.yourtion.micro.thrift.user.UserService;
+import com.yourtion.micro.user.thrift.UserInfo;
+import com.yourtion.micro.user.thrift.UserService;
 import com.yourtion.micro.user.mapper.UserMapper;
 import org.apache.thrift.TException;
 import org.springframework.beans.factory.annotation.Autowired;

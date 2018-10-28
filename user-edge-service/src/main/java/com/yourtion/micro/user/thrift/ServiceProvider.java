@@ -1,7 +1,6 @@
 package com.yourtion.micro.user.thrift;
 
-import com.yourtion.micro.thrift.message.MessageService;
-import com.yourtion.micro.thrift.user.UserService;
+import com.yourtion.micro.message.thrift.MessageService;
 import org.apache.thrift.TServiceClient;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.transport.TFastFramedTransport;

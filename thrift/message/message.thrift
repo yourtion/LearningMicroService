@@ -1,4 +1,4 @@
-namespace java com.yourtion.micro.thrift.message
+namespace java com.yourtion.micro.message.thrift
 namespace py message.api
 
 service MessageService {
