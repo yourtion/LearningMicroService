@@ -47,6 +47,9 @@ public abstract class LoginFilter implements Filter {
             userDTO = cache.getIfPresent(token);
             if (userDTO == null) {
                 userDTO = requestUserInfo(token);
+                if (userDTO != null) {
+                    cache.put(token, userDTO);
+                }
             }
         }
 
@@ -55,7 +58,6 @@ public abstract class LoginFilter implements Filter {
             return;
         }
 
-        cache.put(token, userDTO);
 
         login(request, response, userDTO);
 
