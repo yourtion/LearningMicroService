@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService.Iface {
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private UserMapper userMapper;
 
@@ -21,6 +22,11 @@ public class UserServiceImpl implements UserService.Iface {
     @Override
     public UserInfo getUserByName(String username) throws TException {
         return userMapper.getUserByName(username);
+    }
+
+    @Override
+    public UserInfo getTeacherById(int id) throws TException {
+        return userMapper.getTeacherById(id);
     }
 
     @Override

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="course-dubbo-api" />
+        <module name="course-dubbo-service" />
         <module name="message-thrift-api" />
         <module name="user-edge-service" />
         <module name="user-edge-service-client" />
@@ -15,7 +16,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="course-dubbo-service" target="1.5" />
       <module name="thrift-api-message" target="11" />
     </bytecodeTargetLevel>
   </component>

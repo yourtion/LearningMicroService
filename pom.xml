@@ -11,10 +11,11 @@
     <modules>
         <module>message-thrift-api</module>
         <module>user-thrift-api</module>
-        <module>user-service</module>
+        <module>user-thrift-service</module>
         <module>user-edge-service</module>
         <module>user-edge-service-client</module>
         <module>course-dubbo-api</module>
+        <module>course-dubbo-service</module>
     </modules>
 
     <repositories>
