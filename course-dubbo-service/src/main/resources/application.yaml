@@ -1,21 +1,25 @@
 spring:
-  dubbo:
-    server: true
-    application:
-      name: course-service
-    registry:
-      address: zookeeper://127.0.0.1:2181
-    protocol:
-      name: dubbo
-      host: 127.0.0.1
-      port: 20880
-    scan: com.yourtion.micro.course
-
+  application:
+    name: course-dubbo-seevice
   datasource:
     url: jdbc:mysql://localhost:3306/db_course
     username: micro
     password: aA123456
     driver-class-name: com.mysql.jdbc.Driver
+
+dubbo:
+  server: true
+  application:
+    id: course-service-provider
+    name: course-service-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    host: 127.0.0.1
+    port: 20880
+  scan:
+    basePackages: com.yourtion.micro.course
 
 thrift:
   user:

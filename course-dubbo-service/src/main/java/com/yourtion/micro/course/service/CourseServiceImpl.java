@@ -1,5 +1,6 @@
 package com.yourtion.micro.course.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.yourtion.micro.course.dto.CourseDTO;
 import com.yourtion.micro.course.dubbo.ICourseService;
 import com.yourtion.micro.course.mapper.CourseMapper;
@@ -9,14 +10,14 @@ import com.yourtion.micro.user.thrift.UserInfo;
 import org.apache.thrift.TException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Service
+@Component
 public class CourseServiceImpl implements ICourseService {
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private CourseMapper courseMapper;
 
