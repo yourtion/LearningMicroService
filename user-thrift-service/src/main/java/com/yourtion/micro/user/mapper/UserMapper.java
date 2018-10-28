@@ -21,9 +21,9 @@ public interface UserMapper {
             "values (#{u.username}, #{u.password}, #{u.realName}, #{u.mobile}, #{u.email})")
     void registerUser(@Param("u") UserInfo userInfo);
 
-    @Select("Select u.id, u.username, u.password, u.real_name as realName, u.mobile, u.email, " +
+    @Select("Select u.id, u.username, u.real_name as realName, u.mobile, u.email, " +
             "t.intro, t.stars " +
-            "from pe_user u left join pe_teacher t on u.id=t.user_id" +
+            "from pe_user u left join pe_teacher t on u.id=t.user_id " +
             "where u.id=#{id}")
     UserInfo getTeacherById(@Param("id") int id);
 }
