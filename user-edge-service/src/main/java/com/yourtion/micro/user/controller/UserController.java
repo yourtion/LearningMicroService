@@ -6,7 +6,6 @@ import com.yourtion.micro.user.redis.RedisClient;
 import com.yourtion.micro.user.response.LoginResponse;
 import com.yourtion.micro.user.response.Response;
 import com.yourtion.micro.user.thrift.ServiceProvider;
-import org.apache.commons.lang.StringUtils;
 import org.apache.thrift.TException;
 import org.apache.tomcat.util.buf.HexUtils;
 import org.springframework.beans.BeanUtils;
@@ -70,10 +69,10 @@ public class UserController {
         String code = randomCode("0123456789", 6);
         try {
             boolean result;
-            if (StringUtils.isNotBlank(mobile)) {
+            if (!mobile.isBlank()) {
                 result = serviceProvider.geMessageService().sendMobileMessage(mobile, message + code);
                 redisClient.set(mobile, code);
-            } else if (StringUtils.isNotBlank(email)) {
+            } else if (!email.isBlank()) {
                 result = serviceProvider.geMessageService().sendEmailMessage(email, message + code);
                 redisClient.set(email, code);
             } else {
@@ -99,11 +98,11 @@ public class UserController {
                              @RequestParam(value = "email", required = false) String email,
                              @RequestParam("verifyCode") String verifyCode) {
 
-        if (StringUtils.isBlank(mobile) && StringUtils.isBlank(email)) {
+        if (mobile.isBlank() && email.isBlank()) {
             return Response.MOBILE_OR_EMAIL_REQUIRED;
         }
 
-        if (StringUtils.isNotBlank(mobile)) {
+        if (!mobile.isBlank()) {
             String redisCode = redisClient.get(mobile);
             if (!verifyCode.equals(redisCode)) {
                 return Response.VERIFY_CODE_INVALID;
