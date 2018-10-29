@@ -6,6 +6,15 @@
 
 ![](docs/architecture.png)
 
+## 更新内容
+
+项目根据视频内容，使用 SpringBoot 2.0 和 Java 11 进行了重构，更新内容如下：
+
+- 使用 `Java 11` 新特性（`var`、`String.isBlank()`...）
+- 使用 `SpringBoot 2.0`
+- 使用 `com.alibaba.boot` -> `dubbo-spring-boot-starter` : `0.2.0`
+- 使用 `IntelliJ IDEA 2018.2`
+
 ## 环境
 
 - IDE：IntelliJ IDEA Ultimate 2018.2 

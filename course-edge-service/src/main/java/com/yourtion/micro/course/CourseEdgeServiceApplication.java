@@ -11,10 +11,10 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableDubbo
-public class ServiceApplication {
+public class CourseEdgeServiceApplication {
 
     public static void main(String args[]) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(CourseEdgeServiceApplication.class, args);
     }
 
 
