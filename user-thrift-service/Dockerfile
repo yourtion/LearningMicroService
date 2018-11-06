@@ -1,4 +1,5 @@
 FROM openjdk:11-jre-slim
+MAINTAINER Yourtion yourtion@gmail.com
 
 EXPOSE 7911
 VOLUME /tmp
