@@ -4,14 +4,14 @@ server:
 
 thrift:
   user:
-    ip: 127.0.0.1
-    port: 7911
+    ip: ${THRIFT_USER_HOST:127.0.0.1}
+    port: ${THRIFT_USER_PORT:7911}
   message:
-    ip: 127.0.0.1
-    port: 9090
+    ip: ${THRIFT_MESSAGE_HOST:127.0.0.1}
+    port: ${THRIFT_MESSAGE_PORT:9090}
 
 spring:
   redis:
-    host: localhost
-    port: 6379
-    password: ""
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASS:}

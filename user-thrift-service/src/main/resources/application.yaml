@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/db_user?useSSL=false
-    username: micro
-    password: aA123456
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:db_user}?useSSL=false
+    username: ${MYSQL_USER:micro}
+    password: ${MYSQL_PASSWORD:aA123456}
     driver-class-name: com.mysql.jdbc.Driver

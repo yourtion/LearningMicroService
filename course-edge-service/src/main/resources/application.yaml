@@ -10,7 +10,7 @@ dubbo:
     name: course-service-consumer
     id: course-service-consumer
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://${ZK_HOST:127.0.0.1}:${ZK_PORT:2181}
   protocol:
     name: dubbo
     port: 20880

@@ -4,6 +4,8 @@ MAINTAINER Yourtion yourtion@gmail.com
 EXPOSE 8081
 VOLUME /tmp
 
+ENV DUBBO_REGISTRY "zookeeper://zookeeper:2181"
+
 ARG JAR_FILE="target/course-edge-service-1.0-SNAPSHOT.jar"
 COPY ${JAR_FILE} app.jar
 

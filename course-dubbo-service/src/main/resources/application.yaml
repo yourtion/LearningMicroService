@@ -2,9 +2,9 @@ spring:
   application:
     name: course-dubbo-seevice
   datasource:
-    url: jdbc:mysql://localhost:3306/db_course?useSSL=false
-    username: micro
-    password: aA123456
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:db_course}?useSSL=false
+    username: ${MYSQL_USER:micro}
+    password: ${MYSQL_PASSWORD:aA123456}
     driver-class-name: com.mysql.jdbc.Driver
 
 dubbo:
@@ -13,7 +13,7 @@ dubbo:
     id: course-service-provider
     name: course-service-provider
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://${ZK_HOST:127.0.0.1}:${ZK_PORT:2181}
   protocol:
     name: dubbo
     port: 20880
@@ -22,5 +22,5 @@ dubbo:
 
 thrift:
   user:
-    ip: 127.0.0.1
-    port: 7911
+    ip: ${THRIFT_USER_HOST:127.0.0.1}
+    port: ${THRIFT_USER_PORT:7911}
